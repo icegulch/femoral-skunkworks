@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="generator" content="{{ eleventy.generator }}">
+  <title>
+    {# title + ' | ' | safe if title }}{{ site.title #}CRS Project Coordination
+  </title>
+  <meta name="description" content="{{ meta_description | safe if meta_description else site.description | safe }}">
+  <meta name="keywords" content="Donate Car,Car Donations,Donating a Car,Donate a Car,Donate Cars,Donate a Car to Charity,Donate Your Car,Donate My Car,Vehicle donation, public radio, Car Talk, donate vehicle to charity, npr vehicle donation, how to donate a vehicle">
+  {% set css %}
+    {% include "css/site.css" %}
+  {% endset %}
+  <style>
+    {{ css | safe }}
+  </style>
+</head>
+
+<body>
+
+  {% include "partials/svg-sprite.svg" %}
+
+  <header class="site-header" role="banner">
+    <div class="page-wrap">
+      <nav role="navigation" aria-label="Main" class="menu">
+
+        <div class="logo">
+          <span>CRS Project Coordination</span>
+          <small>CRS Team Internal Website</small>
+        </div>
+
+        <div class="items">
+          <div class="item has-submenu">
+            <a tabindex="1"{% if page.url === 'sfm' %} aria-current="page"{% endif %}>Home <svg><use xlink:href='#caret-down' /></svg></a>
+            <div class="submenu submenu--single">
+              <div class="subitem"><a href="/cql/">Commmunity Quick Lookup</a></div>
+            </div>
+          </div>
+          <div class="item has-submenu">
+            <a tabindex="1">Files <svg><use xlink:href='#caret-down' /></svg></a>
+            <div class="submenu submenu--single">
+              <div class="subitem"><a href="/crs-files/">CRS Files</a></div>
+              <div class="subitem"><a href="/community-files/ecs/">Community ECs</a></div>
+              <div class="subitem"><a href="/community-files/recerts/">Community Recert Docs</a></div>
+              <div class="subitem"><a href="/ec-reference-and-templates/">Reference and Templates</a></div>
+            </div>
+          </div>
+          <div class="item has-submenu">
+            <a tabindex="1">PC Decisions <svg><use xlink:href='#caret-down' /></svg></a>
+            <div class="submenu submenu--single">
+              <div class="subitem"><a href="/latest-updates/300-series-pc-decisions/">300 Series</a></div>
+              <div class="subitem"><a href="/latest-updates/400-series-pc-decisions/">400 Series</a></div>
+              <div class="subitem"><a href="/latest-updates/500-series-pc-decisions/">500 Series</a></div>
+              <div class="subitem"><a href="/latest-updates/600-series-pc-decisions/">600 Series</a></div>
+              <div class="subitem"><a href="/latest-updates/ecr-guidance/">ECR Guidance</a></div>
+            </div>
+          </div>
+          <div class="item">
+            <a href="/sfm/"{% if page.url === '/sfm/' %} aria-current="page"{% endif %}>
+              Super File Mover
+            </a>
+          </div>
+          <div class="item">
+            <a href="/fass/"{% if page.url.includes('fass') %} aria-current="page"{% endif %}>
+              FASS
+            </a>
+          </div>
+          <div class="item has-submenu">
+            <a tabindex="1">Contacts <svg><use xlink:href='#caret-down' /></svg></a>
+            <div class="submenu submenu--single">
+              <div class="subitem"><a href="/internal-contacts/">ISO & PC Contacts</a></div>
+              <div class="subitem"><a href="/internal-contacts/bgegs/">BCEGS Contacts</a></div>
+              <div class="subitem"><a href="/sfm/technical-reviews-and-reviewers/">Who Reviews What?</a></div>
+              <div class="subitem"><a href="/other-forms/scu/">Super Contact Updater</a></div>
+            </div>
+          </div>
+          {# for link in nav_main.links %}
+            {% if link.has_sublinks %}
+              <div class="item has-submenu">
+                <a tabindex="{{ loop.index - 1 }}"{{ ' aria-current=page' if link.path === page.url }}>{{ link.name }}</a>
+                <div class="submenu{{ ' submenu--multi' if link.sublinks.length > 8 else ' submenu--single' }}">
+                  {% if link.sublinks.length > 8 %}
+                    {% for set in link.sublinks | slice(3) %}
+                      <div class="column">
+                        {% for sublink in set %}
+                          <div class="subitem">
+                            <a href="{{ sublink.path }}">
+                              {{ sublink.name }}
+                            </a>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    {% endfor %}
+                  {% else %}
+                    {% for sublink in link.sublinks %}
+                      <div class="subitem">
+                        <a href="{{ sublink.path }}">
+                          {{ sublink.name }}
+                        </a>
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+              </div>
+            {% else %}
+              <div class="item">
+                <a href="{{ link.path }}"{{ ' aria-current=page' if link.path === page.url }}>{{ link.name }}</a>
+              </div>
+            {% endif %}
+          {% endfor #}
+        </div>
+
+        <div class="toggle">
+          <a href="#"><svg><use xlink:href='#menu' /></svg></a>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main" role="main">
+    <div class="page-wrap">
+      <div class="content-wrap">
+        <h1>{{ title }}</h1>
+        {% block content %}
+          {{ content | safe }}
+        {% endblock %}
+      </div>
+    </div>
+  </main>
+
+  <script defer>
+    {% include "partials/nav-js.njk" %}
+  </script>
+
+</body>
+</html>
