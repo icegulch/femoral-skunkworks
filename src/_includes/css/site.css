@@ -193,8 +193,7 @@ img {
 
 .logo span {
   display: block;
-  font: 900 24px / 1 'helvetica', sans-serif;
-  letter-spacing: -0.05rem;
+  font: 600 18px / 1 'helvetica', sans-serif;
 }
 
 .logo small {
@@ -287,5 +286,10 @@ img {
 }
 
 .content-wrap h1 {
-  font-size: 18px;
+  font: 900 24px / 1 'helvetica', sans-serif;
+  letter-spacing: -0.05rem;
+}
+
+.content-wrap > * {
+  margin-bottom: 1.5rem;
 }
