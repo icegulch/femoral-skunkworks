@@ -3,3 +3,14 @@ title: Internal Contacts
 permalink: "/internal-contacts/"
 ---
 
+<h3>ISO/CRS Specialists</h3>
+
+{% for contact in contacts %}
+  <address style="display:block;">
+    {{ contact.first_name + ' ' + contact.last_name }}<br>
+    {{ contact.address1 }}<br>
+    {{ contact.ciy + ', ' + contact.state + ' ' + contact.zip }}<br>
+    {{ ['Cell', 'Phone'] | random }}: {{ contact.phone }}<br>
+    <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+  </address>
+{% endfor %}

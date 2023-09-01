@@ -3,3 +3,46 @@ title: Who Reviews What?
 permalink: "/sfm/technical-reviews-and-reviewers/"
 ---
 
+<table style="width:100%;table-layout:fixed">
+  <thead>
+    <tr>
+      <th>Activity</th>
+      <th>Element</th>
+      <th>Primary</th>
+      <th>Secondary</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in range(0,15) %}
+    <tr>
+      <td>{{ [3,4,5,6] | random }}{{ [1,2,3,4,5,6] | random }}0</td>
+      <td>{{ ['A','B','C','D','E','F'] | random }}{{ ['G','H','I'] | random }}{{ ['P','R'] | random }}</td>
+      <td>{{ ['Gladys','Hank','Ingrid'] | random }}</td>
+      <td>{{ ['Ashley','Blake','Clyde','Deidre','Elaine','Fred'] | random }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<h3>PC Reviewers</h3>
+
+<table style="width:100%;table-layout:fixed">
+  <thead>
+    <tr>
+      <th>SMITH</th>
+      <th>PEREZ</th>
+      <th>COLDWELL</th>
+      <th>THIBAULT</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in range(0,5) %}
+    <tr>
+      <td>{{ contacts[loop.index + [1,2,3,4,5,6] | random].last_name }}</td>
+      <td>{{ contacts[loop.index + [7,8,9,10] | random].last_name }}</td>
+      <td>{{ contacts[loop.index + [11,12,13,14,15,16] | random].last_name }}</td>
+      <td>{{ contacts[loop.index + [17,18,19,20] | random].last_name }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>

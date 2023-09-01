@@ -3,3 +3,11 @@ title: "500 Series PC Decisions"
 permalink: "/latest-updates/500-series-pc-decisions/"
 ---
 
+<h3>510</h3>
+<ul>
+  {% for item in range(0,7) %}
+  <li> 
+    <a href="#">{{ ['Lorem ipsum table', 'Bacon lorem EC', 'Yadda yadda addendum'] | random }}</a> ({{ [1,2,3,4,5,6,7,8,9,10,11,12] | random }}/{{ [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28] | random }}/{{ 2023 - loop.index }}) - {{ ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Malesuada fames ac turpis egestas sed tempus urna. Vivamus at augue eget arcu dictum varius duis at. Cursus turpis massa tincidunt dui ut ornare lectus sit.', 'Vulputate ut pharetra sit amet aliquam id diam maecenas ultricies. Orci nulla pellentesque dignissim enim sit amet venenatis urna. Id interdum velit laoreet id donec ultrices tincidunt arcu non. Sit amet luctus venenatis lectus. Molestie ac feugiat sed lectus vestibulum. Varius quam quisque id diam vel quam elementum pulvinar. Non odio euismod lacinia at quis risus sed vulputate odio.'] | random }}
+  </li>
+  {% endfor %}
+</ul>
